@@ -11,7 +11,7 @@
 #define ClearScreen {system("clear");}
 #define END1 {printf("请输入任意键继续....");system("read abs");}
 
-int Center_Display(char *buf, int reserve, char *buf1);
+int Center_Display(const char * const buf, int reserve, const char * const buf1);
 
 int main(void)
 {	
@@ -21,16 +21,22 @@ int main(void)
 	int lines_data_content = 0; //等待计算出一行可以容纳的数字
 	int print_data_size = 0;  //计算出要打印的字符长度
 	char welcome_content[] = {"欢迎使用信息管理系统"};
+	int select_number = 0; //选择的数字
 	
 	Center_Display(welcome_content, 0, NULL);
-	Center_Display()
-	
-	END1;	
+	Center_Display("查看学生信息", 1, "1：");
+	Center_Display("增加学生信息", 1, "2：");
+	Center_Display("删除学生信息", 1, "3：");
+	Center_Display("修改学生信息", 1, "4：");
+	Center_Display("退出系统"    , 1, "0：");
+	printf("请输入您需要的功能:");
+	scanf("%d", &select_number); //读入功能
+	printf("你输入的功能号为:%d\n", select_number);
 	return 0;
 }
 
 
-int Center_Display(char *buf, int reserve, char *buf1)
+int Center_Display(const char * const buf, int reserve, const char * const buf1)
 {
 	/*
 	 * 居中打印这段文字
